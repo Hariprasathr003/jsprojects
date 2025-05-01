@@ -8,18 +8,21 @@ const descriptionTotal = document.getElementById("descriptionTotal");
 const totalincome = document.getElementById("totalincome");
 const totalexpense = document.getElementById("totalexpense");
 const balance = document.getElementById("balance");
-
+const month = document.getElementById("month");
+const cmonth = document.getElementById("cmonth");
 let data = [];
 
 addbutton.addEventListener("click", addTransaction);
 
 function addTransaction() {
+  const month1 = month.value.trim();
   const descriptions = description.value.trim();
-  const amounts = parseFloat(amount.value.trim());
+  const amounts = parseInt(amount.value.trim());
 
-  if (descriptions && !isNaN(amounts)) {
+  if (month1 && descriptions && !isNaN(amounts)) {
     const transaction = {
       id: Date.now(),
+      month: month1,
       description: descriptions,
       amount: amounts,
     };
@@ -30,7 +33,7 @@ function addTransaction() {
   } else {
     alert("Please enter valid description and amount.");
   }
-
+  month.value = "";
   description.value = "";
   amount.value = "";
 }
@@ -41,7 +44,7 @@ function renderList() {
   data.forEach((item) => {
     const li = document.createElement("li");
     li.innerHTML = `
-         ${item.description}: ₹${item.amount}
+          ${item.month} : ${item.description}: ₹${item.amount}
         <button onclick="deletexpense(${item.id})">Delete</button>
       `;
     ulist.appendChild(li);
@@ -74,16 +77,18 @@ totalbutton.addEventListener("click", calculateTotal);
 
 function calculateTotal() {
   const descriptionSearch = currectdescription.value.trim();
+  const currentmonth = cmonth.value.trim();
 
   if (!descriptionSearch) {
     return alert("Enter a current description to calculate the total.");
   }
 
   const filtered = data.filter(
-    (item) => item.description.toLowerCase() === descriptionSearch.toLowerCase()
+    (item) =>
+      item.description === descriptionSearch && item.month === currentmonth
   );
 
   const total = filtered.reduce((acc, item) => acc + item.amount, 0);
 
-  descriptionTotal.innerHTML = `Current total for "${descriptionSearch}": ₹${total}`;
+  descriptionTotal.innerHTML = `Current month  ${currentmonth} - product "${descriptionSearch}" total: ₹${total}`;
 }
