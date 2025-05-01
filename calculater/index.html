@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="cal">
+      <input type="text" id="display" />
+      <div class="buttons">
+        <button onclick="appendToDisply('0')">0</button>
+        <button onclick="appendToDisply('1')">1</button>
+        <button onclick="appendToDisply('2')">2</button>
+        <button onclick="appendToDisply('3')">3</button>
+        <button onclick="appendToDisply('4')">4</button>
+        <button onclick="appendToDisply('5')">5</button>
+        <button onclick="appendToDisply('6')">6</button>
+        <button onclick="appendToDisply('7')">7</button>
+        <button onclick="appendToDisply('8')">8</button>
+        <button onclick="appendToDisply('9')">9</button>
+
+        <button class="ope" onclick="appendToDisply('+')">+</button>
+        <button class="ope" onclick="appendToDisply('-')">-</button>
+        <button class="ope" onclick="appendToDisply('*')">*</button>
+        <button class="ope" onclick="appendToDisply('/')">/</button>
+        <button class="cle" onclick="clearDisply()">C</button>
+        <button class="backspace" onclick="backspace()">x</button>
+        <button class="equ" onclick="equalToCalculate()">=</button>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
