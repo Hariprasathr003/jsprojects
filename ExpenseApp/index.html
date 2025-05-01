@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./sryle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Expense Tracker App</h2>
+      <input
+        type="text"
+        id="description"
+        placeholder="Add a description"
+        required
+      />
+      <input type="number" id="amount" placeholder="Add an amount" required />
+      <button id="addbutton">Add Transaction</button>
+
+      <br /><br />
+
+      <input
+        type="text"
+        id="currectdescription"
+        placeholder="Enter description to calculate total"
+        required
+      />
+      <button id="totalbutton">Calculate particular Description Total</button>
+
+      <h3>Transactions:</h3>
+      <ul id="ulist"></ul>
+
+      <h3 id="descriptionTotal"></h3>
+
+      <h3 id="totalincome"></h3>
+      <h3 id="totalexpense"></h3>
+      <h3 id="balance"></h3>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
+
+<!-- Project Brief: Expense Tracker App
+Goal:
+Build a simple web-based Expense Tracker using HTML, CSS, and JavaScript.
+Requirements:
+1. User can:
+Add an income or expense (amount + description).
+See a list of all transactions.
+Delete a transaction.
+View total income, total expenses, and current balance.
+2. Tech Stack:
+HTML for structure.
+CSS for basic styling (keep it simple).
+JavaScript for logic (use arrays to manage transactions). (edited)  -->
