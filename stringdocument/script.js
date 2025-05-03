@@ -1,3 +1,98 @@
+//at
+let text = "W3Schools";
+let text1 = "Apple, Banana, Kiwi";
+
+let textsearch = "Please locate where 'locate' occurs!";
+let textsearch2 = "The rain in SPAIN stays mainly in the plain";
+
+let index = textsearch.indexOf("locate");
+let index1 = textsearch.lastIndexOf("locate");
+let index2 = textsearch.indexOf("locate", 15);
+let index3 = textsearch.search("locate");
+let index4 = textsearch2.match("ain");
+let index5 = textsearch2.matchAll("ain");
+let index6 = textsearch2.includes("rain");
+
+let character = text.at(0);
+let letter = text.charAt(0);
+let length = text.length;
+
+let name = "Hello";
+let name2 = "World";
+let text4 = name.concat(name2);
+
+let white = "      Hello World!      ";
+let text5 = white.trim();
+let text6 = white.trimStart();
+let text7 = white.trimEnd();
+let number = "5";
+let padded = number.padStart(4, "0");
+let padded1 = number.padEnd(4, "0");
+
+let part = text1.slice(7, 13);
+let part1 = text.slice(-12);
+let part2 = text.substring(7, 13);
+let part3 = text.substr(7, 6);
+let text2 = text1.toUpperCase();
+let text3 = text1.toLowerCase();
+let text8 = text.repeat(2);
+let text9 = text.replace("W3Schools", "Microsoft");
+let text10 = text1.split(",");
+
+console.log(character, "at method");
+console.log(letter, "charAt method");
+console.log(length, "length method");
+console.log(part, "slice method");
+console.log(part1, "slice method riverse");
+console.log(part2, "substring method ");
+console.log(
+  part3,
+  "substr method first parameter pass index value and second parameter length of the string "
+);
+console.log(text2, "UpperCase method ");
+console.log(text3, "LowerCase method ");
+console.log(text4, "concat method ");
+console.log(text5, "trim method remove white space");
+console.log(text6, "trimStart method remove white space start");
+console.log(text7, "trimEnd method remove white space end");
+console.log(padded, "padStart method add string value in starting");
+console.log(padded1, "padEnd method add string value in End");
+console.log(text8, "repeat method repeat string value");
+console.log(text9, "replace method replace string value");
+console.log(text10, "split method split string value");
+console.log("string search methods");
+console.log(index, "indexOf searchmethod position to the string value");
+console.log(
+  index1,
+  "lastIndexOf searchmethod last position to the string value"
+);
+console.log(
+  index1,
+  "indexOf searchmethod  position to the string value and secant parameter was starting ofthe index value"
+);
+console.log(index3, "search method position to the string value");
+console.log(
+  "The search() method cannot take a second start position argument and The indexOf method cannot take powerful search values regular expressions (/)"
+);
+
+console.log(
+  index4,
+  "match searchmethod position matching a string against a string"
+);
+
+console.log(
+  index5,
+  "matchAll searchmethod position matching a string to end against a string"
+);
+console.log(
+  index6,
+  "includes searchmethod find the value in current string find value is true not find false throw the message "
+);
+
+console.log(
+  "startsWith , endsWith same in includes method find and return boolean value"
+);
+
 // Find the length of a string TASK - 1
 
 const a = "Hariprasath";
@@ -156,4 +251,4 @@ function firsetFunc(val) {
   const ans = spl.map((res) => res.charAt(0).toUpperCase() + res.slice(1));
   return ans.join(" ");
 }
-console.log(firsetFunc(tit)); 
+console.log(firsetFunc(tit));
