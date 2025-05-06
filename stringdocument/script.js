@@ -1,4 +1,200 @@
-//at
+//String
+
+//length //
+// des : value of full length
+// return : to number
+//example
+//const a="java"
+//console.log(a.length)
+
+//charAt() //
+//  des : value of single character particular index value
+// return : string
+//example
+// const a="java"
+// console.log(a.charAt(1))
+
+//at() //
+//  des : index of value support negative index
+// return : string
+//example
+// const a="java"
+// console.log(a.at(2))
+
+//string manipulation//
+
+//toUpperCase() //
+// des : value modify to  uppercase value
+// return : string
+//example
+// const a="java"
+// console.log(a.toUpperCase())
+
+//toLowerCase() //
+// des :value modify to lowercase value
+// return : string
+//example
+// const a="java"
+// console.log(a.toLowerCase())
+
+//trim() //
+// des : remove to the whitespace
+// return : string
+//example
+// const a="   java   "
+// console.log(a.trim(""))
+
+//trimStart() //
+// des :remove to the start whitespace
+// return:string
+//example
+// const a="   java   "
+// console.log(a.trimStart(""))
+
+//trimEnd() //
+// des:remove to the end  whitespace
+// return:string
+//example
+// const a="   java   "
+// console.log(a.trimEnd(""))
+
+//slice(start,end)//
+// des:extract to the particular length of value (end -1) and accept negative value and first value only input it start to end all value showed
+// return:string
+//example
+// const a="javascript"
+// console.log(a.slice(4))
+
+//substring(start,end)//
+// des :similar to slice method extract to the particular value but not accept negative value
+// return:string
+//example
+// const a="javascript"
+// console.log(a.substring(4))
+
+//substr(start,end)//
+// des:similar to the slice method and accept to negative value
+//return :string
+//example
+// const a="javascript"
+// console.log(a.substr(4))
+
+//search method //
+
+//indexOf("val")//
+// des:serach to the particular index value
+//return:number  and number not found return -1
+//example
+// const a="javascript"
+// console.log(a.indexOf("scr"))
+
+//lastIndexOf()//
+// des :search and last index of particular value same value only find
+//return :number
+//example
+// const a="javascript javascirpt"
+// console.log(a.lastIndexOf("t"))
+
+//includes()//
+// des:search to the particular value
+// return:Boolean
+//example
+// const a="javascript "
+// console.log(a.includes("va"))
+
+//startsWith()//
+// des:search to the start particular value
+//return:Boolean
+//example
+// const a="javascript "
+// console.log(a.startsWith("j"))
+
+//endsWith()//
+// des:seacrch to the end particular value
+//return :Boolean
+//example
+// const a="javascript"
+// console.log(a.endsWith("t"))
+
+//replace(old,new) //
+// des : replace with paricular value  first match only
+// return:string
+//example
+// const a="javascript"
+// console.log(a.replace("java","type"))
+
+//replaceAll(old,new)//
+// des:replace with paricular value all matches
+// return : string
+//example
+// const a="javascriptjava"
+// console.log(a.replaceAll("java","type"))
+
+//split(split value in)//
+// des:split in particular experission(" ,")
+//  return: array
+//example
+// const a="java script java"
+// console.log(a.split(" "))
+
+//concat(val) //
+// des :concat to another string
+//return : string
+//example
+// const a="java"
+// console.log(a.concat("script"))
+
+//repeat(n)//
+// des:repeat to the value (n) times
+//return:string
+//example
+// const a="java"
+// console.log(a.repeat(2))
+
+//match(/s/i/g)//
+// des:match to the regular expression use to match find first match only
+//return:Array or null
+//example
+// const a="java script123"
+// console.log(a.match(/\D/))
+//regEs
+
+// common regex
+//g (global match) , i (case-insensitive) ,m (multiline match) ,s (dot matches newline) ,u  (unicode)
+// /d (digit 0-9 ), /D (non - digit (/\d/)) ,/w (word character (/\w/) a-z,A-Z,0-9),/W (non word charater (@,!,#)) ,/s (whitespace) ,/S (non whitespace (/\s/)) ,^ (start of string (/^hi/)) ,$ (end of string (/hi$/))
+
+//matchAll(/d/s/gi)//
+// des:match all matches regular experssion
+// return:Iterator
+//example
+// const a="java script123"
+// console.log(a.match(/\D+/g))
+
+//padStart(length,value)//
+// des:pading to the start in particular values to fill
+//return:string
+//example
+// const a="java"
+// console.log(a.padStart(10,"0"))
+
+//padEnd(length,value)//
+// des:pading to end the particular values to fill
+//return:string
+//example
+// const a="java"
+// console.log(a.padEnd(10,"0"))
+
+//tostring()//
+// des:modify to the number to string
+// return:string
+//example
+// const a=12345
+// console.log(a.toString())
+
+//valueof()//
+// des: Returns the primitive value of the string
+//return:string
+
 let text = "W3Schools";
 let text1 = "Apple, Banana, Kiwi";
 
