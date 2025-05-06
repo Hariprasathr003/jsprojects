@@ -2,7 +2,7 @@
 
 //Array length//
 //des:length of total array value
-//return number
+//return: number
 //example
 // let arr = [1, 2];
 // let len = arr.length
@@ -11,7 +11,7 @@
 
 //Array toString()//
 //des:array to covert string value
-//return string
+//return:string
 //example
 // let str=["vicky","kamalesh"]
 // console.log(str.toString())
@@ -66,27 +66,27 @@
 //output:3
 
 //Array delete()//
-//des:delete to the  particular array element
-//return:del to return Boolean value and this index was empty only del in value
+//des:delete to the  particular array element empty/undefined
+//return:true (but array length doesn’t change)
 //example
 // let str=["vicky","kamalesh","sunil"]
 // console.log(delete str[1])
 //output: true
 
 //Array concat()//
-//des:merging array 
-//return:return array value
+//des:merging array
+//return:return new array value
 //example
 // let str=["vicky","kamalesh","sunil"]
 // let str2=["jayahari","vasanth","rajesh"]
 // console.log(str.concat(str2))
-//output:[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+//output:[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 
 //Array copyWithin(position,start,end)//
 //des: copyWithin the array another position and overwrites the existing values
-//return :array not change original value length
+//return :modifi the array and length not change in original value 
 //example
-// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.copyWithin(0,2,4))
 // output:[ 'sunil', 'jayahari', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 
@@ -112,19 +112,18 @@
 //  ]
 
 //Array splice(index,del,add item)//
-//des:add and remove to the array
-//return:new array
+//des:add and remove to the array in specific position
+//return:removed elements
 //example
-// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.splice(0,2,4))
 // output:[ 'sunil', 'jayahari', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 
-
 //toSpliced(index,del)//
-//des: remove to the array
+//des: return a new array modifying the specified items.
 //return:new array
 //example
-// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.toSpliced(2,1))
 // output:[ 'vicky', 'kamalesh', 'jayahari', 'vasanth', 'rajesh' ]
 
@@ -132,70 +131,69 @@
 //des:start and end index value to exterct to the new array
 //return:new array and not modify original array
 //example
- // let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.slice(1,5))
 // output:[ 'kamalesh', 'sunil', 'jayahari', 'vasanth' ]
-
 
 // JavaScript Array Search //
 
 //Array indexOf()//
-//des:indexof value is true to return position to the index number
-//return:index number
+//des:indexof value is true to return first position to the index number
+//return:index number or not found -1 return
 //example
-// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky', 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.indexOf("rajesh"))
 // output:5
 
 //Array lastIndexOf()//
-//des:lastindexof value is true to return position to the lastindex of number
-//return:index number
+//des:lastindexof value is true to return last position to the lastindex of number
+//return:index number or  not found -1 return
 //example
-// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.lastIndexOf("rajesh"))
 // output:6
 
 //Array includes()//
-//des:check to the array value 
+//des:check to the array value
 //return:boolean value
 //example
-// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
+// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
 // console.log(str.includes("kamalesh"))
 // output:true
 
 //Array find()//
 //des:find to the  condition to first element to pass
-//return :new array
+//return : first matching element and not found undefined
 //example
-// let str=[ 15,30,35,20,25] 
-// const ans=str.find(val=>val>=25) 
+// let str=[ 15,30,35,20,25]
+// const ans=str.find(val=>val>=25)
 // console.log(ans)
 // output:30
 
 // Array findIndex()//
 //des:findindex to the  condition to first element to pass
-//return :new array and index position
+//return :Index of the first/last match, or -1 if not found
 //example
-// let str=[ 15,30,35,20,25] 
-// const ans=str.findIndex(val=>val>=25) 
+// let str=[ 15,30,35,20,25]
+// const ans=str.findIndex(val=>val>=25)
 // console.log(ans)
 // output:1
 
 //Array findLast()//
 //des:findLast to the  condition to last element to pass
-//return :new array and array value
+//return :new array and undefined if not found.
 //example
-// let str=[ 15,30,35,20,25] 
-// const ans=str.findLast(val=>val>=25) 
+// let str=[ 15,30,35,20,25]
+// const ans=str.findLast(val=>val>=25)
 // console.log(ans)
 // output:25
 
 //Array findLastIndex()//
 //des:findLastIndex to the  condition to last element to pass
-//return :new array and index position
+//return :new array and index position and -1 if not found.
 //example
-// let str=[ 15,30,35,20,25] 
-// const ans=str.findLastIndex(val=>val>=25) 
+// let str=[ 15,30,35,20,25]
+// const ans=str.findLastIndex(val=>val>=25)
 // console.log(ans)
 // output:4
 
@@ -203,10 +201,10 @@
 
 // Array sort() //
 //des:sort to the alphabetically
-//return :new array
+//return :Sorted new array
 //example
-// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ] 
-// const ans=str.sort() 
+// let str=[ 'vicky',"rajesh", 'kamalesh', 'sunil', 'jayahari', 'vasanth', 'rajesh' ]
+// const ans=str.sort()
 // console.log(ans)
 // output:[
 //   'jayahari', 'kamalesh',
@@ -218,15 +216,15 @@
 //Array reverse()//
 
 //des:reverse to the element of the array
-//return :new array
+//return : Reversed new array
 //example
 // let str=[
 //   'jayahari', 'kamalesh',
 //   'rajesh',   'rajesh',
 //   'sunil',    'vasanth',
 //   'vicky'
-// ] 
-// const ans=str.reverse() 
+// ]
+// const ans=str.reverse()
 // console.log(ans)
 // output:[
 //   'vicky',    'vasanth',
@@ -253,7 +251,7 @@
 // ]
 
 //Numeric Sort//
-//des:sort to the array of Numeric value 
+//des:sort to the array of Numeric value
 //return:new array
 //example
 // const points = [40, 100, 1, 5, 25, 10];
@@ -262,20 +260,22 @@
 // output:[ 1, 5, 10, 25, 40, 100 ]
 
 // Math.min()//
-//des:minimum value find of numeric value using apply
+//des:minimum value find of numeric and usage with apply-You can also use the spread operator:
 //return minimu value element
 //example
 // const points = [40, 100, 5, 25, 10];
-// const ans=Math.min.apply(null,points) 
+// const ans=Math.min.apply(null,points)
+// console.log(Math.min(...points)); 
 // console.log(ans)
 // output:5
 
 // Math.max()//
-//des:maximum value find of numeric value using apply
+//des:maximum value find of numeric and usage with apply-You can also use the spread operator:
 //return maximum value of element
 //example
 // const points = [40, 100, 5, 25, 10];
-// const ans=Math.max.apply(null,points) 
+// const ans=Math.max.apply(null,points)
+// console.log(Math.max(...points));
 // console.log(ans)
 // output:100
 
@@ -288,16 +288,124 @@
 // console.log(ans)
 // output:[ 5, 100, 10, 40, 1, 25 ]
 
+// Array Iteration Methods //
 
+//Array forEach(item,index,itself)//
+//des:Executes a provided function once for each array element does not return a new array
+//return: undefined
+//example
+//const numbers = [45, 4, 9, 16, 25];
+// numbers.forEach(val=>
+//   console.log(val*2))
+//   output:90
+//   8
+//   18
+//   32
+//   50
 
+//Array map() //
+//des:not modify to the original array
+//return : new array
+//example:
+// const a=[1,2,3,4,5]
+// const n=a.map(val=>val*2)
+// console.log(n)
+// output:[ 2, 4, 6, 8, 10 ]
 
+//Array flatMap()
+//des:creates to the new array and flating to the array
+//return:new array
+//example:
+// const a=[1,2,3,4,5]
+// const n=a.flatMap(val=>[val,val*2])
+// console.log(n)
+// output:[
+//   1, 2, 2, 4,  3,
+//   6, 4, 8, 5, 10
+// ]
 
+//Array filter()//
+//des:not modify to the original array  and filter to the condition
+//return :array
+//example:
+// const a=[1,2,3,4,5]
+// const n=a.filter(val=>val%2===0)
+// console.log(n)
+// output:[ 2, 4]
 
+// Array reduce() //
+//des:reduce to the particular value
+//return:single value
+//example:
+// const a=[1,2,3,4,5]
+// const n=a.reduce((acc,val)=>acc+val,0)
+// console.log(n)
+// output:15
 
+//Array reduceRight() //
+//des: reduce method using to the right to left order
+//return single value
+//example:
+// const a=[1,2,3,4,5]
+// const n=a.reduceRight((acc,val)=>acc+val,0)
+// console.log(n)
+// output:15
 
+//Array every()//
+//des :every method using to the all condition is true
+//return:boolean
+//example:
+// const a=[3,4,3,4,5]
+// const n=a.every(val=>val>2)
+// console.log(n)
+// output:true
 
+//Array some() //
+//des:some method used to any one condition true
+//return:boolean
+//example:
+// const a=[2,1,1,0,3]
+// const n=a.some(val=>val>2)
+// console.log(n)
+// output:true
 
+// Array from() //
+//des:any value to convert object to iterate
+//return:iterate
+//example:
+// const a=["abcdeg"]
+// const n=Array.from("abcdeg")
+//output:[ 'a', 'b', 'c', 'd', 'e', 'g' ]
+// const n=Array.from(a)
+// console.log(n)
+// output:[ 'abcdeg' ]
 
+// Array with() Method//
+// des:modify to the particular index value
+//return:array
+//example:
+// const a=["vicky","kamalesh","sunil"]
+// const b=a.with(2,"sunilkumar")
+// console.log(b)
+//output:[ 'vicky', 'kamalesh', 'sunilkumar' ]
+
+//Array Spread (...)//
+// des:spread to the all value in another variable
+//return:array
+// example:
+// const q1 = ["Jan", "Feb", "Mar"];
+// const q2 = ["Apr", "May", "Jun"];
+// const q3 = ["Jul", "Aug", "Sep"];
+// const q4 = ["Oct", "Nov", "Des"];
+
+// const year = [...q1, ...q2, ...q3, ...q4];
+// console.log(year)
+// output:[
+//   'Jan', 'Feb', 'Mar',
+//   'Apr', 'May', 'Jun',
+//   'Jul', 'Aug', 'Sep',
+//   'Oct', 'Nov', 'Des'
+// ]
 
 
 
@@ -370,8 +478,8 @@ console.log(ans);
 
 // Check array Input
 
-function isarray(val){
-  return Array.isArray(val)
-  }
-  const a=[1,2,3]
-  console.log(isarray(a))
+function isarray(val) {
+  return Array.isArray(val);
+}
+const a = [1, 2, 3];
+console.log(isarray(a));
