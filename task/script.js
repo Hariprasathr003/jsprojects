@@ -1,4 +1,4 @@
-// String to Array of Words//
+// 1) String to Array of Words//
 
 const b = "i am a beginner";
 function a(val) {
@@ -6,7 +6,7 @@ function a(val) {
 }
 console.log(a(b));
 
-// Check String Input
+// 2) Check String Input
 
 const c = [];
 function abc(val) {
@@ -18,7 +18,7 @@ function abc(val) {
 }
 console.log(abc(c));
 
-// Extract Characters//
+// 3) Extract Characters//
 
 const ana = "i am a beginner";
 function extract(val) {
@@ -26,7 +26,7 @@ function extract(val) {
 }
 console.log(extract(ana));
 
-//Abbreviate Name//
+//4) Abbreviate Name//
 
 function abbreviate(val) {
   const res = val.trim("").split(" ");
@@ -34,7 +34,7 @@ function abbreviate(val) {
 }
 console.log(abbreviate("r hari prasath "));
 
-//Hide Email Address//
+//5) Hide Email Address//
 
 function emailfun(val) {
   const a = val.slice(0, val.indexOf("@")).padStart(val.length, "*");
@@ -44,7 +44,7 @@ function emailfun(val) {
 }
 console.log(emailfun("hari@gmail.com"));
 
-// Insert in String //
+//6)  Insert in String //
 
 // function insert(indval,val=0,index=0){
 //   const a= indval.split(" ")
@@ -74,7 +74,7 @@ function truncateFunction(value, insert, index) {
 }
 console.log(truncateFunction("We are doing JS string exercises.", "hi", 23));
 
-// Capitalize First Letter //
+//7) Capitalize First Letter //
 
 function firstCap(val) {
   const a = val.split(" ");
@@ -82,7 +82,7 @@ function firstCap(val) {
 }
 console.log(firstCap("hi hello everyone"));
 
-// Camelize String//
+//8) Camelize String//
 
 function camelFunc(val) {
   const ans = val.split(" ");
@@ -90,7 +90,7 @@ function camelFunc(val) {
 }
 console.log(camelFunc("hello function"));
 
-// Uncamelize String//
+//9) Uncamelize String//
 
 function camelFunc(val, space) {
   const ans = val.replace(/[A-Z]/g, (match) => space + match.toLowerCase());
@@ -98,7 +98,7 @@ function camelFunc(val, space) {
 }
 console.log(camelFunc("helloWorld", "_"));
 
-// Repeat String
+//10) Repeat String//
 
 function repfun(val, n) {
   if (val.repeat(n) == 0) {
@@ -109,7 +109,7 @@ function repfun(val, n) {
 }
 console.log(repfun("Ha", 3));
 
-//  Chop String into Chunks
+// 11) Chop String into Chunks//
 
 function chopfun(val, num) {
   const str = [];
@@ -125,7 +125,7 @@ function chopfun(val, num) {
 }
 console.log(chopfun("w3resource", 2));
 
-//Count Substring Occurrences
+//12) Count Substring Occurrences//
 
 function countFun(val, check) {
   const arr = val.split(" ");
@@ -146,17 +146,134 @@ function countFun(val, check) {
 }
 console.log(countFun("The quick brown fox jumps over the lazy dog", "The"));
 
-//Pad String to Length//
+// 13) Pad String to Length//
 
-function padFun(len,val,padRorL){
-  if(padRorL=="S"){
-    return val.padStart(len,"0")
-       
+function padFun(len, val, padRorL) {
+  if (padRorL == "S") {
+    return val.padStart(len, "0");
   }
-  if(padRorL=="E"){
-      return   val.padEnd(len,"0")
+  if (padRorL == "E") {
+    return val.padEnd(len, "0");
   }
 }
-console.log(padFun(5,"java","E"))
+console.log(padFun(5, "java", "E"));
 
-// Substring After Character
+//14) Substring After Character//
+
+function aftFun(val, spl, isaftbef) {
+  const index = val.indexOf(spl);
+
+  if (isaftbef === "a") {
+    return val.slice(index);
+  } else if (isaftbef === "b") {
+    return val.slice(0, index);
+  }
+
+  return val;
+}
+
+console.log(aftFun("hi hello! javaScript World ", "!", "b"));
+
+//15) Trim Spaces//
+
+function trimFun(val) {
+  return val.trim("");
+}
+console.log(trimFun("  hello"));
+
+// 16) Truncate by Words//
+
+function truFun(val, len) {
+  const ans = val.split(" ");
+  // console.log(ans)
+  const res = ans.slice(0, len);
+  // console.log(res.join(" "))
+  return res.join(" ");
+}
+console.log(truFun("The quick brown fox jumps over the lazy dog", 6));
+
+//17) Alphabetize String//
+
+function alpha(val) {
+  const res = val.toLowerCase();
+  const ans = res.split("").sort().join(" ");
+  return ans;
+}
+console.log(alpha("United States"));
+
+//18) Find Word in String //
+
+function findFun(val, find) {
+  const ans = val.split(",");
+  // let count=0
+  // for(let i=0;i<ans.length;i++){
+  //     console.log(ans[i])
+  //     if(ans[i].includes(find)){
+  //         count++
+  //     }
+  // }
+  //  return count
+  const res = ans.reduce((acc, val) => {
+    if (val.includes(find)) {
+      acc++;
+    }
+    return acc;
+  }, 0);
+
+  return res;
+
+  // console.log(res,"pppppp")
+}
+console.log(findFun("aa, bb, cc, dd, aa, aa", "aa"));
+
+//19)  Remove Non-Word Characters
+
+function removeFun(val) {
+  const ans = val.replace(/[^a-zA-Z]/g, "");
+  return ans;
+}
+console.log(removeFun("PHP ~!@#$%^&*()+`-={}[]|\\:\";'/?><., MySQL"));
+
+//20) Rearrange to Palindrom//
+
+function poliFun(val){
+  if(typeof(val) !== "string"){
+      return "It must be a string."
+  }
+  const res=val.split("").reverse().join("")
+  return res === val
+}
+console.log(poliFun("civic"))
+
+//21) Frequent Character //
+
+function freqFun(val){
+  let freq={};
+  for(let i in val){
+      // console.log(val[i])
+      freq[i]=val[i]
+  }
+  return freq
+}
+console.log(freqFun("asdfgasd"))
+
+//22)Most Frequent Character//
+
+function freqFun(val) {
+    if (typeof val !== "string") {
+        return "It must be a string";
+    }
+    let freq = {};      
+    let count = 0;  
+    for (let i = 0; i < val.length; i++) {
+        let charval = val[i];
+        // console.log(char)
+        freq[charval] = (freq[charval] || 0) + 1; 
+        // console.log(freq)
+        if (freq[charval] > count) {
+            count = freq[charval];
+        }
+    }
+    return count;
+}
+console.log(freqFun("asdfgasd")); 
