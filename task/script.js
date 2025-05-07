@@ -236,44 +236,249 @@ console.log(removeFun("PHP ~!@#$%^&*()+`-={}[]|\\:\";'/?><., MySQL"));
 
 //20) Rearrange to Palindrom//
 
-function poliFun(val){
-  if(typeof(val) !== "string"){
-      return "It must be a string."
+function poliFun(val) {
+  if (typeof val !== "string") {
+    return "It must be a string.";
   }
-  const res=val.split("").reverse().join("")
-  return res === val
+  const res = val.split("").reverse().join("");
+  return res === val;
 }
-console.log(poliFun("civic"))
+console.log(poliFun("civic"));
 
 //21) Frequent Character //
 
-function freqFun(val){
-  let freq={};
-  for(let i in val){
-      // console.log(val[i])
-      freq[i]=val[i]
+function freqFun(val) {
+  let freq = {};
+  for (let i in val) {
+    // console.log(val[i])
+    freq[i] = val[i];
   }
-  return freq
+  return freq;
 }
-console.log(freqFun("asdfgasd"))
+console.log(freqFun("asdfgasd"));
 
 //22)Most Frequent Character//
 
 function freqFun(val) {
-    if (typeof val !== "string") {
-        return "It must be a string";
+  if (typeof val !== "string") {
+    return "It must be a string";
+  }
+  let freq = {};
+  let count = 0;
+  for (let i = 0; i < val.length; i++) {
+    let charval = val[i];
+    // console.log(char)
+    freq[charval] = (freq[charval] || 0) + 1;
+    // console.log(freq)
+    if (freq[charval] > count) {
+      count = freq[charval];
     }
-    let freq = {};      
-    let count = 0;  
-    for (let i = 0; i < val.length; i++) {
-        let charval = val[i];
-        // console.log(char)
-        freq[charval] = (freq[charval] || 0) + 1; 
-        // console.log(freq)
-        if (freq[charval] > count) {
-            count = freq[charval];
+  }
+  return count;
+}
+console.log(freqFun("asdfgasd"));
+
+function freqFun(val) {
+  if (typeof val !== "string") {
+    return "It must be a string";
+  }
+  //   let freq = {};
+  const res = val.split("");
+  //   console.log(res,"sppppp")
+  const ans = res.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
+  return ans;
+  //   for (let i = 0; i < val.length; i++) {
+  //     let charval = val[i];
+  //     freq[charval] = (freq[charval] || 0) + 1;
+  //   }
+  //   console.log(freq)
+  //   return freq
+}
+console.log(freqFun("asdfgasd"));
+
+//  Input: [0, 1, 0, 3, 12]
+// // Output: [1, 3, 12, 0, 0]
+
+//23 sort and zero to last to set
+function sorFun(val) {
+  const findzero = [];
+  const ans = [];
+  for (let i = 0; i < val.length; i++) {
+    if (val[i] === 0) {
+      findzero.push(val[i]);
+    } else {
+      ans.push(val[i]);
+    }
+  }
+  ans.sort((a, b) => a - b);
+  const res = ans.concat(findzero);
+
+  console.log(findzero, "ppppp");
+  console.log(ans, "ooo");
+  return res;
+}
+console.log(sorFun(input));
+
+//24 find target element index
+
+const a = [2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 67];
+const target = 30;
+function targetFun(val, target) {
+  for (let i = 0; i < val.length; i++) {
+    for (let j = i + 1; j < val.length; j++) {
+      if (val[i] + val[j] === target) return [i, j];
+    }
+  }
+}
+console.log(targetFun(a, target));
+
+//25 Check Array Input
+function checkArray(val) {
+  return Array.isArray(val);
+}
+console.log(checkArray([1, 2]));
+
+//26  First Elements of Array
+
+function firstEle(val,len){
+  if(len==null){
+      return val[0]
+  }
+  if(len<0){
+      return []
+  }
+  const ans=val.slice(0,len)
+  return ans
+} 
+console.log(firstEle([7, 9, 0, -2]));
+
+console.log(firstEle([],3));
+
+console.log(firstEle([7, 9, 0, -2],3));
+
+console.log(firstEle([7, 9, 0, -2],6));
+
+console.log(firstEle([7, 9, 0, -2],-3));
+
+//27 Last Elements of Array
+
+function lastEle(val,len){
+  if(len==null){
+      return  val.pop()
+  }
+  if(len>val.length){
+      return val
+  }
+  for(let i=val.length-1;i>0;i--){
+         const ans=val.slice(val.length-len)
+         return ans
+  }
+} 
+console.log(lastEle([7, 9, 0, -2]));
+console.log(lastEle([7, 9, 0, -2],3));
+console.log(lastEle([7, 9, 0, -2],6));
+
+//28)Join Array Elements
+function joinFun(val,joinval){
+  const join=val.join(joinval)
+  return join
+}
+  const mycolor = ["Red", "Green", "White", "Black"];
+console.log(joinFun(mycolor,"!"))
+
+//29)Insert Dashes Between Evens
+
+function iseven(val){
+  let res="";
+  for(let i=0;i<val.length;i++){
+      res +=val[i]
+  if(val[i+1]%2==0){
+res += '-';
+  }
+  }
+  return res
+}
+console.log(iseven([0,2,5,7,6,9,10]))
+
+// 30)Sort Array
+
+const  arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
+function sortFun(val){
+    val.sort((a,b)=>a-b)
+    return val
+}
+console.log(sortFun(arr1))
+
+
+// 31)Most Frequent Array Item
+
+const arr2=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+
+function freqFun(val,check){
+    let count=0;
+    for(let i=0;i<val.length;i++){
+        if(val[i]===check){
+            count++
         }
     }
-    return count;
+    
+    return  ` "${check}" : ${count}`
 }
-console.log(freqFun("asdfgasd")); 
+console.log(freqFun(arr2,"a"))
+
+// 32)Swap Case in String
+
+const a = "The Quick Brown Fox";
+
+function swapFun(val) {
+    const res = val.split("");
+    const ans=res.map(val=>val===val.toUpperCase()? val.toLowerCase() : val.toUpperCase())
+    // console.log(ans)
+    return ans.join("")
+}
+
+console.log(swapFun(a)); 
+
+//33) Print Nested Array Elements
+
+const abc = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]
+function nestFun(val){
+for(let i in val){
+    console.log("row ",i)
+    for(let j in val[i]){
+        console.log(val[i][j])
+    }
+}
+}
+console.log(nestFun(abc))
+
+// 34)Sum of Squares in Array
+
+function sumofFun(val){
+  let store=0
+  for(let i=0;i<val.length;i++){
+      let power = Math.pow(val[i],2)
+      store +=power
+      // console.log(store)
+  }
+  return store
+}
+const sum=[1,2,3,3];
+console.log(sumofFun(sum))
+
+
+//35) Sum and Product of Array
+
+function sumProdFun(val){
+  let sum=0
+  let product =1;
+  for(let i=0;i<val.length;i++){
+      product *=val[i]
+      sum +=val[i]
+  }
+  return `"product" : ${product} , "sum" :${sum}`
+}
+console.log(sumProdFun([1,2,3,4]))
