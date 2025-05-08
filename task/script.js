@@ -343,142 +343,376 @@ console.log(checkArray([1, 2]));
 
 //26  First Elements of Array
 
-function firstEle(val,len){
-  if(len==null){
-      return val[0]
+function firstEle(val, len) {
+  if (len == null) {
+    return val[0];
   }
-  if(len<0){
-      return []
+  if (len < 0) {
+    return [];
   }
-  const ans=val.slice(0,len)
-  return ans
-} 
+  const ans = val.slice(0, len);
+  return ans;
+}
 console.log(firstEle([7, 9, 0, -2]));
 
-console.log(firstEle([],3));
+console.log(firstEle([], 3));
 
-console.log(firstEle([7, 9, 0, -2],3));
+console.log(firstEle([7, 9, 0, -2], 3));
 
-console.log(firstEle([7, 9, 0, -2],6));
+console.log(firstEle([7, 9, 0, -2], 6));
 
-console.log(firstEle([7, 9, 0, -2],-3));
+console.log(firstEle([7, 9, 0, -2], -3));
 
 //27 Last Elements of Array
 
-function lastEle(val,len){
-  if(len==null){
-      return  val.pop()
+function lastEle(val, len) {
+  if (len == null) {
+    return val.pop();
   }
-  if(len>val.length){
-      return val
+  if (len > val.length) {
+    return val;
   }
-  for(let i=val.length-1;i>0;i--){
-         const ans=val.slice(val.length-len)
-         return ans
+  for (let i = val.length - 1; i > 0; i--) {
+    const ans = val.slice(val.length - len);
+    return ans;
   }
-} 
+}
 console.log(lastEle([7, 9, 0, -2]));
-console.log(lastEle([7, 9, 0, -2],3));
-console.log(lastEle([7, 9, 0, -2],6));
+console.log(lastEle([7, 9, 0, -2], 3));
+console.log(lastEle([7, 9, 0, -2], 6));
 
 //28)Join Array Elements
-function joinFun(val,joinval){
-  const join=val.join(joinval)
-  return join
+function joinFun(val, joinval) {
+  const join = val.join(joinval);
+  return join;
 }
-  const mycolor = ["Red", "Green", "White", "Black"];
-console.log(joinFun(mycolor,"!"))
+const mycolor = ["Red", "Green", "White", "Black"];
+console.log(joinFun(mycolor, "!"));
 
 //29)Insert Dashes Between Evens
 
-function iseven(val){
-  let res="";
-  for(let i=0;i<val.length;i++){
-      res +=val[i]
-  if(val[i+1]%2==0){
-res += '-';
+function iseven(val) {
+  let res = "";
+  for (let i = 0; i < val.length; i++) {
+    res += val[i];
+    if (val[i + 1] % 2 == 0) {
+      res += "-";
+    }
   }
-  }
-  return res
+  return res;
 }
-console.log(iseven([0,2,5,7,6,9,10]))
+console.log(iseven([0, 2, 5, 7, 6, 9, 10]));
 
 // 30)Sort Array
 
-const  arr1 = [ -3, 8, 7, 6, 5, -4, 3, 2, 1 ];
-function sortFun(val){
-    val.sort((a,b)=>a-b)
-    return val
+const arr1 = [-3, 8, 7, 6, 5, -4, 3, 2, 1];
+function sortFun(val) {
+  val.sort((a, b) => a - b);
+  return val;
 }
-console.log(sortFun(arr1))
-
+console.log(sortFun(arr1));
 
 // 31)Most Frequent Array Item
 
-const arr2=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+const arr2 = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3];
 
-function freqFun(val,check){
-    let count=0;
-    for(let i=0;i<val.length;i++){
-        if(val[i]===check){
-            count++
-        }
+function freqFun(val, check) {
+  let count = 0;
+  for (let i = 0; i < val.length; i++) {
+    if (val[i] === check) {
+      count++;
     }
-    
-    return  ` "${check}" : ${count}`
+  }
+
+  return ` "${check}" : ${count}`;
 }
-console.log(freqFun(arr2,"a"))
+console.log(freqFun(arr2, "a"));
 
 // 32)Swap Case in String
 
 const a = "The Quick Brown Fox";
 
 function swapFun(val) {
-    const res = val.split("");
-    const ans=res.map(val=>val===val.toUpperCase()? val.toLowerCase() : val.toUpperCase())
-    // console.log(ans)
-    return ans.join("")
+  const res = val.split("");
+  const ans = res.map((val) =>
+    val === val.toUpperCase() ? val.toLowerCase() : val.toUpperCase()
+  );
+  // console.log(ans)
+  return ans.join("");
 }
 
-console.log(swapFun(a)); 
+console.log(swapFun(a));
 
 //33) Print Nested Array Elements
 
-const abc = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]]
-function nestFun(val){
-for(let i in val){
-    console.log("row ",i)
-    for(let j in val[i]){
-        console.log(val[i][j])
+const abc = [
+  [1, 2, 1, 24],
+  [8, 11, 9, 4],
+  [7, 0, 7, 27],
+  [7, 4, 28, 14],
+  [3, 10, 26, 7],
+];
+function nestFun(val) {
+  for (let i in val) {
+    console.log("row ", i);
+    for (let j in val[i]) {
+      console.log(val[i][j]);
     }
+  }
 }
-}
-console.log(nestFun(abc))
+console.log(nestFun(abc));
 
 // 34)Sum of Squares in Array
 
-function sumofFun(val){
-  let store=0
-  for(let i=0;i<val.length;i++){
-      let power = Math.pow(val[i],2)
-      store +=power
-      // console.log(store)
+function sumofFun(val) {
+  let store = 0;
+  for (let i = 0; i < val.length; i++) {
+    let power = Math.pow(val[i], 2);
+    store += power;
+    // console.log(store)
   }
-  return store
+  return store;
 }
-const sum=[1,2,3,3];
-console.log(sumofFun(sum))
-
+const sum = [1, 2, 3, 3];
+console.log(sumofFun(sum));
 
 //35) Sum and Product of Array
 
-function sumProdFun(val){
-  let sum=0
-  let product =1;
-  for(let i=0;i<val.length;i++){
-      product *=val[i]
-      sum +=val[i]
+function sumProdFun(val) {
+  let sum = 0;
+  let product = 1;
+  for (let i = 0; i < val.length; i++) {
+    product *= val[i];
+    sum += val[i];
   }
-  return `"product" : ${product} , "sum" :${sum}`
+  return `"product" : ${product} , "sum" :${sum}`;
 }
-console.log(sumProdFun([1,2,3,4]))
+console.log(sumProdFun([1, 2, 3, 4]));
+
+// interview questions
+
+// 1)reverse
+
+function revFun(val) {
+  let rev = "";
+  for (let i = val.length - 1; i >= 0; i--) {
+    rev += val[i];
+  }
+  return rev;
+}
+console.log(revFun("java"));
+
+//2)Check for palindrome
+function revFun(val) {
+  const rev = val.split("").reverse().join("");
+  return rev === val ? "poly" : "not poly";
+}
+console.log(revFun("mom"));
+//3)Find the factorial of a number
+
+function fact(val) {
+  let a = 1;
+  for (let i = 1; i <= val; i++) {
+    a *= i;
+  }
+  return a;
+}
+console.log(fact(5));
+
+//recursion method
+function fact(val) {
+  if (val === 0 || val === 1) return 1;
+  return val * fact(val - 1);
+}
+
+console.log(fact(5));
+
+//4)Fibonacci series
+
+function fiboFun(val) {
+  let store = [];
+  for (let i = 0; i < val; i++) {
+    if (i == 0) {
+      store.push(0);
+    } else if (i == 1) {
+      store.push(1);
+    } else {
+      store.push(store[i - 1] + store[i - 2]);
+    }
+  }
+  return store;
+}
+console.log(fiboFun(5));
+
+//5)Remove duplicates from an array
+function dubliFun(val) {
+  let dublicate = new Set(val);
+  return dublicate;
+}
+console.log(dubliFun([1, 2, 2, 3, 4, 4, 5]));
+
+//6)Find the maximum number in an array
+
+function maxFun(val) {
+  const max = Math.max(...val);
+  return max;
+}
+console.log(maxFun([5, 9, 2, 8, 1]));
+
+// 7)Check if two strings are anagrams
+function anagramFun(val1, val2) {
+  const check = val1
+    .toLowerCase()
+    .replace(/[^A-Za-z0-9]/)
+    .split("")
+    .sort()
+    .join("");
+  const check2 = val2
+    .toLowerCase()
+    .replace(/[^A-Za-z0-9]/)
+    .split("")
+    .sort()
+    .join("");
+  if (check === check2) {
+    return "anagrams";
+  } else {
+    return "not anagrams";
+  }
+}
+console.log(anagramFun("listen", "silent"));
+
+// 8)Count vowels in a string
+
+function vowcouFun(val) {
+  const vowel = "aeiou";
+  let count = 0;
+  val.split("");
+  vowel.split("");
+  // console.log(vowel)
+  for (let i = 0; i < val.length; i++) {
+    if (vowel.includes(val[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+const check = "aeiou";
+console.log(vowcouFun(check));
+
+// 9) Flatten a nested array
+
+function flatFun(val) {
+  return val.flat(Infinity);
+}
+console.log(flatFun([1, [2, [3, 4], 5]]));
+
+
+//10)Find missing number from array 1 to n
+function findmiisFun(val) {
+  const num=val.length+1
+const res = (num* (num + 1)) / 2;
+const ans = val.reduce((acc, val) => acc + val, 0);
+return res - ans;
+}
+
+const val = [1, 2,3, 4, 5, 6,8];
+console.log(findmiisFun(val)) 
+
+
+//11)groupby task
+
+const a =[
+  {
+      name: "Hari",
+      role: "Developer",
+      address:{
+          city: "Chennai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Sruthi",
+      role: "Business analyst",
+      address:{
+          city: "Mumbai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Yamuna",
+      role: "Manager",
+      address:{
+          city: "Chennai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Huxly",
+      role: "Developer",
+      address:{
+          city: "Bangalore",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Akshaya",
+      role: "DevOps",
+      address:{
+          city: "Mumbai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Aswin",
+      role: "Manager",
+      address:{
+          city: "Bangalore",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Karthik",
+      role: "Developer",
+      address:{
+          city: "Chennai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Yamini",
+      role: "Manager",
+      address:{
+          city: "Mumbai",
+          pincode: 6000123
+      }
+  },
+  {
+      name: "Manish",
+      role: "Manager",
+      address:{
+          city: "Bangalore",
+          pincode: 6000123
+      }
+  }
+  ]
+  
+ function group(val,find,add){
+     const ans=val.filter(val=>val.role===find).reduce((acc,val)=>{
+         acc[val[add].city]=acc[val[add].city]||[]
+         acc[val[add].city].push(val.role,val[add])
+      //   console.log(role)
+         return acc
+     },[])
+  //   console.log(ans)
+     return ans
+     
+ }
+ console.log(group(a,"Manager","address"))
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
