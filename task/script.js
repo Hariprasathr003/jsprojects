@@ -608,111 +608,279 @@ console.log(flatFun([1, [2, [3, 4], 5]]));
 
 
 //10)Find missing number from array 1 to n
+
 function findmiisFun(val) {
-  const num=val.length+1
-const res = (num* (num + 1)) / 2;
-const ans = val.reduce((acc, val) => acc + val, 0);
-return res - ans;
+  const num = val.length + 1;
+  const res = (num * (num + 1)) / 2;
+  const ans = val.reduce((acc, val) => acc + val, 0);
+  return res - ans;
 }
 
-const val = [1, 2,3, 4, 5, 6,8];
-console.log(findmiisFun(val)) 
-
+const val = [1, 2, 3, 4, 5, 6, 8];
+console.log(findmiisFun(val));
 
 //11)groupby task
 
-const a =[
+const a = [
   {
-      name: "Hari",
-      role: "Developer",
-      address:{
-          city: "Chennai",
-          pincode: 6000123
-      }
+    name: "Hari",
+    role: "Developer",
+    address: {
+      city: "Chennai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Sruthi",
-      role: "Business analyst",
-      address:{
-          city: "Mumbai",
-          pincode: 6000123
-      }
+    name: "Sruthi",
+    role: "Business analyst",
+    address: {
+      city: "Mumbai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Yamuna",
-      role: "Manager",
-      address:{
-          city: "Chennai",
-          pincode: 6000123
-      }
+    name: "Yamuna",
+    role: "Manager",
+    address: {
+      city: "Chennai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Huxly",
-      role: "Developer",
-      address:{
-          city: "Bangalore",
-          pincode: 6000123
-      }
+    name: "Huxly",
+    role: "Developer",
+    address: {
+      city: "Bangalore",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Akshaya",
-      role: "DevOps",
-      address:{
-          city: "Mumbai",
-          pincode: 6000123
-      }
+    name: "Akshaya",
+    role: "DevOps",
+    address: {
+      city: "Mumbai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Aswin",
-      role: "Manager",
-      address:{
-          city: "Bangalore",
-          pincode: 6000123
-      }
+    name: "Aswin",
+    role: "Manager",
+    address: {
+      city: "Bangalore",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Karthik",
-      role: "Developer",
-      address:{
-          city: "Chennai",
-          pincode: 6000123
-      }
+    name: "Karthik",
+    role: "Developer",
+    address: {
+      city: "Chennai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Yamini",
-      role: "Manager",
-      address:{
-          city: "Mumbai",
-          pincode: 6000123
-      }
+    name: "Yamini",
+    role: "Manager",
+    address: {
+      city: "Mumbai",
+      pincode: 6000123,
+    },
   },
   {
-      name: "Manish",
-      role: "Manager",
-      address:{
-          city: "Bangalore",
-          pincode: 6000123
-      }
-  }
-  ]
-  
- function group(val,find,add){
-     const ans=val.filter(val=>val.role===find).reduce((acc,val)=>{
-         acc[val[add].city]=acc[val[add].city]||[]
-         acc[val[add].city].push(val.role,val[add])
+    name: "Manish",
+    role: "Manager",
+    address: {
+      city: "Bangalore",
+      pincode: 6000123,
+    },
+  },
+];
+
+function group(val, find, add) {
+  const ans = val
+    .filter((val) => val.role === find)
+    .reduce((acc, val) => {
+      acc[val[add].city] = acc[val[add].city] || [];
+      acc[val[add].city].push(val.role, val[add]);
       //   console.log(role)
-         return acc
-     },[])
+      return acc;
+    }, []);
   //   console.log(ans)
-     return ans
-     
- }
- console.log(group(a,"Manager","address"))
- 
- 
- 
- 
- 
- 
- 
- 
+  return ans;
+}
+console.log(group(a, "Manager", "address"));
+
+//12)max value
+const av = [99, 5, 3, 100, 1];
+function maxval(val) {
+  // let store=Math.max(...val)
+  let store = val[0];
+  for (let i = 0; i < val.length; i++) {
+    if (val[i] > store) store = val[i];
+  }
+  return store;
+}
+console.log(maxval(av));
+
+//  13)Non repeat Character
+function nonRepFun(val) {
+  const store = {};
+
+  for (let i = 0; i < val.length; i++) {
+    store[val[i]] = (store[val[i]] || 0) + 1;
+  }
+  // return store
+  for (let i = 0; i < val.length; i++) {
+    if (store[val[i]] === 1) {
+      return val[i];
+    }
+  }
+}
+
+console.log(nonRepFun("hiihplloo"));
+
+//14)debounce
+
+function debounce(firstFun, delay) {
+  let timeout;
+  return function (...arugs) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      firstFun.apply(this, arugs);
+    }, delay);
+  };
+}
+
+function normalFun(pass) {
+  console.log("HI hari", pass);
+}
+
+const ans = debounce(normalFun, 2000);
+ans("how are you");
+
+//15)prime number check
+
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPrime(4));
+console.log(isPrime(2));
+
+//16)longest word in sentence
+
+function longestWord(val) {
+  const ans = val.split(" ");
+  let text = "";
+  //  let count=0;
+  let store = {};
+
+  for (let i = 0; i < ans.length; i++) {
+    // console.log(ans[i])
+
+    // all freq sentence//
+    // store[ans[i]]=(store[ans[i]]||0)+1
+
+    //longest sentence in word //
+    if (ans[i].length > text.length) {
+      text = ans[i];
+    }
+
+    //longest sentence in number //
+    // if(ans[i].length>count){
+    //      count=ans[i].length
+    // }
+  }
+  // return store
+  return text; //longest sentence
+  // return count   //sentence count
+}
+
+console.log(longestWord("the quick brown fox jumps over the lazy dog"));
+
+
+//17) Sum All Odd Fibonacci Numbers
+
+function fiboFun(val){
+  let store=[]
+  for(let i=0;i<val;i++){
+      // console.log(i)
+          if(i==0){
+              store.push(0)
+          }
+          else if(i==1){
+              store.push(1)
+          }
+          else{
+              store.push((store[i-1])+(store[i-2]))
+          }
+         
+  }
+  const ans=store.reduce((acc,val)=>acc+val,0)
+  
+   return ans
+   
+}
+  console.log(fiboFun(5))
+
+  //18) missing number
+
+  // function missFun(val,n){
+//     const ans=(n*(n+1)/2)
+//     const res=val.reduce((acc,val)=>acc+val,0)
+//     return ans-res
+//     console.log(ans)
+// }
+// const a=[1,2,3,5];
+// console.log(missFun(a,5))
+
+
+function missFun(val,n){
+  const store=[]
+  for(let i=1;i<=n;i++){
+      // for(let j=1;j<val.length;j++){
+      //       // console.log(val[j])
+      // // console.log(val)
+      // if(val.includes(i))
+      // {
+      //   store.push(i)
+      // }
+      if(!val.includes(i)){
+          store.push(i)
+      }
+      // }
+  }
+return store 
+}
+const a=[1,2,3,5,7,9];
+console.log(missFun(a,10))
+
+//19) isarray value is correct 
+
+const str1=[1,2,3];
+const str2=[3,2,1];
+
+function isTrue(str1,str2){
+    const ans=str1.every(val=>str2.includes(val));
+    return ans
+}
+console.log(isTrue(str1,str2))
+
+//20) intersection in infinity param using
+
+const st=[1,2,3];
+const st2=[3,2,0];
+const st3=[1,0,2];
+
+function isTrue(...params){
+    const ans=params.reduce((acc, curr) =>
+    acc.filter(val=>curr.includes(val)))
+    return ans
+}
+console.log(isTrue(st,st2, st3))
