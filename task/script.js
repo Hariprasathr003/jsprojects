@@ -606,7 +606,6 @@ function flatFun(val) {
 }
 console.log(flatFun([1, [2, [3, 4], 5]]));
 
-
 //10)Find missing number from array 1 to n
 
 function findmiisFun(val) {
@@ -779,7 +778,7 @@ function longestWord(val) {
   const ans = val.split(" ");
   let text = "";
   //  let count=0;
-  let store = {};
+  // let store = {};
 
   for (let i = 0; i < ans.length; i++) {
     // console.log(ans[i])
@@ -804,34 +803,29 @@ function longestWord(val) {
 
 console.log(longestWord("the quick brown fox jumps over the lazy dog"));
 
-
 //17) Sum All Odd Fibonacci Numbers
 
-function fiboFun(val){
-  let store=[]
-  for(let i=0;i<val;i++){
-      // console.log(i)
-          if(i==0){
-              store.push(0)
-          }
-          else if(i==1){
-              store.push(1)
-          }
-          else{
-              store.push((store[i-1])+(store[i-2]))
-          }
-         
+function fiboFun(val) {
+  let store = [];
+  for (let i = 0; i < val; i++) {
+    // console.log(i)
+    if (i == 0) {
+      store.push(0);
+    } else if (i == 1) {
+      store.push(1);
+    } else {
+      store.push(store[i - 1] + store[i - 2]);
+    }
   }
-  const ans=store.reduce((acc,val)=>acc+val,0)
-  
-   return ans
-   
+  const ans = store.reduce((acc, val) => acc + val, 0);
+
+  return ans;
 }
-  console.log(fiboFun(5))
+console.log(fiboFun(5));
 
-  //18) missing number
+//18) missing number
 
-  // function missFun(val,n){
+// function missFun(val,n){
 //     const ans=(n*(n+1)/2)
 //     const res=val.reduce((acc,val)=>acc+val,0)
 //     return ans-res
@@ -840,47 +834,121 @@ function fiboFun(val){
 // const a=[1,2,3,5];
 // console.log(missFun(a,5))
 
-
-function missFun(val,n){
-  const store=[]
-  for(let i=1;i<=n;i++){
-      // for(let j=1;j<val.length;j++){
-      //       // console.log(val[j])
-      // // console.log(val)
-      // if(val.includes(i))
-      // {
-      //   store.push(i)
-      // }
-      if(!val.includes(i)){
-          store.push(i)
-      }
-      // }
+function missFun(val, n) {
+  const store = [];
+  for (let i = 1; i <= n; i++) {
+    // for(let j=1;j<val.length;j++){
+    //       // console.log(val[j])
+    // // console.log(val)
+    // if(val.includes(i))
+    // {
+    //   store.push(i)
+    // }
+    if (!val.includes(i)) {
+      store.push(i);
+    }
+    // }
   }
-return store 
+  return store;
 }
-const a=[1,2,3,5,7,9];
-console.log(missFun(a,10))
+const a = [1, 2, 3, 5, 7, 9];
+console.log(missFun(a, 10));
 
-//19) isarray value is correct 
+//19) isarray value is correct
 
-const str1=[1,2,3];
-const str2=[3,2,1];
+const str1 = [1, 2, 3];
+const str2 = [3, 2, 1];
 
-function isTrue(str1,str2){
-    const ans=str1.every(val=>str2.includes(val));
-    return ans
+function isTrue(str1, str2) {
+  const ans = str1.every((val) => str2.includes(val));
+  return ans;
 }
-console.log(isTrue(str1,str2))
+console.log(isTrue(str1, str2));
 
 //20) intersection in infinity param using
 
-const st=[1,2,3];
-const st2=[3,2,0];
-const st3=[1,0,2];
+const st = [1, 2, 3];
+const st2 = [3, 2, 0];
+const st3 = [1, 0, 2];
 
-function isTrue(...params){
-    const ans=params.reduce((acc, curr) =>
-    acc.filter(val=>curr.includes(val)))
-    return ans
+function isTrue(...params) {
+  const ans = params.reduce((acc, curr) =>
+    acc.filter((val) => curr.includes(val))
+  );
+  return ans;
 }
-console.log(isTrue(st,st2, st3))
+console.log(isTrue(st, st2, st3));
+
+//21) flat array
+
+function flatFun(val) {
+  let store = [];
+  for (let i = 0; i < val.length; i++) {
+    if (Array.isArray(val[i])) {
+      let ans = flatFun(val[i]);
+      // console.log(ans,"ooooooooo")
+      for (let j = 0; j < ans.length; j++) {
+        store.push(ans[j]);
+      }
+    } else {
+      store.push(val[i]);
+    }
+  }
+  return store;
+}
+
+const a = [1, [2, [3, [4]], 5]];
+console.log(flatFun(a));
+
+//22)flat in object
+
+function flatObj(val) {
+  const store = {};
+  for (let i in val) {
+    if (typeof val[i] === "object") {
+      const res = flatObj(val[i]);
+      for (let j in res) {
+        store[i + "." + j] = res[j];
+      }
+    } else {
+      store[i] = val[i];
+    }
+  }
+  return store;
+}
+
+const input = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3,
+    },
+  },
+  f: 4,
+};
+console.log(flatObj(input));
+
+// 23)dis and total find
+const a = [
+  { product: "book", price: 2000, discount: 10 },
+  { product: "bag", price: 1500, discount: 20 },
+  { product: "laptop", price: 30000, discount: 25 },
+];
+
+function totalFun(val) {
+  const maxtotal = val.reduce((acc, val) => {
+    const dis = (val.price * val.discount) / 100;
+    // console.log(dis)
+    const total = val.price - dis;
+    //  console.log(total)
+    console.log(
+      `${val.product} and Price ${val.discount}% discount : ₹ ${total}`
+    );
+    return acc + total;
+  }, 0);
+
+  return `Total Price after all discounts: ₹ ${maxtotal}`;
+}
+
+console.log(totalFun(a));
