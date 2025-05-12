@@ -952,3 +952,175 @@ function totalFun(val) {
 }
 
 console.log(totalFun(a));
+
+//24)
+// Input: [1, 2, 4, 7], range = [1, 7]
+// Output: [[3], [5, 6]]
+
+function rangeFun(input, range) {
+  const n = range[range.length - 1];
+  const store = [];
+  let emp = [];
+  const ans = [];
+  // console.log(n)
+  for (let i = 1; i <= n; i++) {
+    if (!input.includes(i)) {
+      store.push(i);
+    }
+  }
+  for (let i = 0; i < store.length; i++) {
+    emp.push(store[i]);
+    // console.log(emp)
+    if (store[i + 1] !== store[i] + 1) {
+      ans.push(emp);
+      emp = [];
+    }
+  }
+  return ans;
+}
+
+const input1 = [1, 2, 4, 7];
+const range = [1, 7];
+console.log(rangeFun(input1, range));
+
+// const a = [1,2,4,7];
+// const miss = (arr, range) => {
+//     const [start, end] = range;
+//   const newArr= Array.from({ length: end - start + 1 }, (_, i) => start + i);
+//     const missing = newArr.filter((val) => !arr.includes(val));
+//   let temp = [];
+//   const result = [];
+//   for (let i = 0; i < missing.length; i++) {
+//     temp.push(missing[i]);
+//     if (missing[i + 1] !== missing[i] + 1) {
+//       result.push(temp);
+//       temp = [];
+//     }
+//   }
+//   return result
+// };
+// console.log(miss(a, [1,7]))
+
+// 25)groupby
+const users = [
+  { id: 1, name: "Alice", role: "admin" },
+  { id: 2, name: "Bob", role: "user" },
+  { id: 3, name: "Charlie", role: "admin" },
+  { id: 4, name: "Dave", role: "user" }
+];
+
+function groupFun(val,role){
+    const store=val.reduce((acc,val)=>{
+        acc[val.role]=acc[val.role]||[]
+        acc[val.role].push(val)
+        return acc
+    },{})
+    return store
+}
+console.log(groupFun(users,"role"))
+
+const data = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3
+    }
+  },
+  f: 4
+};
+// 26)merge obj
+const arr = [
+  { id: 1, name: "Alice", age: 25 },
+  { id: 2, name: "Bob", age: 30 }
+];
+
+const arr3 = [
+  { id: 1, name: "Alicia", country: "USA" },
+  { id: 3, name: "Charlie", age: 35 }
+];
+
+// [
+//   { id: 1, name: "Alicia", age: 25, country: "USA" },
+//   { id: 2, name: "Bob", age: 30 },
+//   { id: 3, name: "Charlie", age: 35 }
+// ]
+
+
+function mergeFun(val1,val2){
+    const a=new Map (val2.map(val=>[val.id,val]));
+    
+    const merge=val1.reduce((acc,val)=>{
+        if(a.has(val.id)){
+            acc.push({...val,...a.get(val.id)})
+            a.delete(val.id)
+        }
+        else{
+            acc.push(val)
+        }
+        return acc
+    },[])
+    
+    a.forEach(val=>{
+        merge.push(val)
+    })
+    return merge
+}
+console.log(mergeFun(arr,arr3))
+
+
+
+// 27)deep equal
+const a = {
+  name: "Alice",
+  address: {
+    city: "Wonderland",
+    zip: 12345
+  }
+};
+
+const d = {
+  name: "Alice",
+  address: {
+    city: "Wonderland",
+    zip: 12345
+  }
+};
+
+
+
+
+function isObject(val1,val2){
+    if(val1===val2){
+        return true
+    }
+    if(val1==null || val2==null){
+        return false
+    }
+    
+    if( typeof val1=="object" && typeof val1==="object"){
+           const keys1 = Object.keys(val1);
+           const keys2 = Object.keys(val2);
+    
+      if (keys1.length !== keys2.length) return false;
+      
+   for (let key of keys1) {
+      if (!keys2.includes(key)) return false;
+      if (!isObject(val1[key], val2[key])) return false;
+    }
+    return true;
+    }
+    return false;
+}
+console.log(isObject(a,d))
+
+
+
+
+
+
+
+
+
+
+
